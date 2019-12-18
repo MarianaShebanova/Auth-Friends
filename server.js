@@ -62,7 +62,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'm' && password === '123') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
@@ -89,6 +89,7 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
     res.status(404).send({ msg: 'Friend not found' });
   }
 });
+
 
 app.post('/api/friends', authenticator, (req, res) => {
   const friend = { id: getNextId(), ...req.body };
